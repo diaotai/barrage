@@ -20,12 +20,13 @@
 .barr {
   width: auto;
   position: relative;
-  animation:rtl 8s linear 2s infinite;; 
+  /*animation:rtl 8s linear 2s infinite;; 
+  */
 }
 
 
 @keyframes rtl {
-from   {background:red; left:800px; top:0px;}
+from   {background:red; left:60%; top:0px;}
 
-to {background:red; left:-900px; top:0px;}
+to {background:red; left:-60%; top:0px;}
 }

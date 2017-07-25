@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { CSSTransitionGroup } from 'react-transition-group';
+import  Animate from 'react-smooth';
+import Content from './content';
 import './App.css';
 
 class App extends Component {
@@ -7,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <span className="barr">hello world</span>
+          <Content from="60%" to="-60%" duration="7500"  content="Hello world"/>
         </div>
       </div>
     );
