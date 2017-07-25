@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Content from './content';
+import io from 'socket.io-client';
 import './App.css';
+const socket = io('http://localhost:8000');
+
 
 class App extends Component {
   state = {
@@ -15,6 +18,13 @@ class App extends Component {
     this.setState({items:[...this.state.items,{duration:7900,content:this.state.inputValue}]})
   }
   render() {
+    socket.on('connect', ()=>{
+      console.log("connect")
+    });
+    socket.on('event', function(data){});
+    socket.on('disconnect',()=>{
+      console.log("disconnect")
+    } );
     let items= this.state.items.map((item)=>{
       return <Content duration={item.duration} content= {item.content} />
     })
