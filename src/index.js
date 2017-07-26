@@ -8,7 +8,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 let store = createStore(reducer);
-console.log(store)
 window.private = {}
 window.private.store = store;
 
