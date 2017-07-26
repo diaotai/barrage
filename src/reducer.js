@@ -10,11 +10,12 @@ export function contentsReducer(state=initialState,action){
         });
         case DELETE:
            // console.log(state.contents,"被执行了!!!")
-            let tmp = state.contents;
-            tmp.pop();
-           // console.log(tmp,"tmp!!!")
+
+          //  console.log(tmp,"tmp!!!")
           return Object.assign({},state,{
-           contents:tmp
+           contents:state.contents.filter((e)=>{
+                return e.key!==action.key
+           })
         });
         default:
         return state;

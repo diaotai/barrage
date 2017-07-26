@@ -13,7 +13,7 @@ const socket = io('http://localhost:8000');
       setTimeout(()=>{
       //  console.log("我被执行了")
          window.private.store.dispatch(deleteContens(data.key))
-      },data.duration)
+      },Number(data.duration)+1000)
   })
   
 class App extends Component {
