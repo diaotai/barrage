@@ -24,8 +24,18 @@ var io = require('socket.io')(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
+const colors = ["#495A80","#D0E9FF","#1DB0B8","#9966CC","#E9F01D","#008573","#DE3163","#FFA07B","#fdb933"]
 io.on('connection', function(socket){
   console.log("socket connection!!!")
+  socket.on('myContent',(data)=>{
+    console.log(data);
+    io.emit('contents',{
+      content:data,
+      duration:Math.random()*8000+3000,
+      fontSize:Math.floor(25+Math.random()*40)+"px",
+      color:colors[Math.floor(Math.random()*colors.length)]
+    })
+  })
 });
 
 
