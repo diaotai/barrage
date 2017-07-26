@@ -18,24 +18,26 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-
+let key=0;
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
-const colors = ["#495A80","#D0E9FF","#1DB0B8","#9966CC","#E9F01D","#008573","#DE3163","#FFA07B","#fdb933"]
+const colors = ["#495A80","#00EBC0","#1DB0B8","#9966CC","#801818","#008573","#DE3163","#FFA07B","#fdb933"]
 io.on('connection', function(socket){
   console.log("socket connection!!!")
   socket.on('myContent',(data)=>{
     console.log(data);
     io.emit('contents',{
+      key,
       content:data,
       duration:Math.random()*8000+5000,
       fontSize:Math.floor(25+Math.random()*80)+"px",
       color:colors[Math.floor(Math.random()*colors.length)],
       top:80*Math.random()+"%"
     })
+    key++;
   })
 });
 
