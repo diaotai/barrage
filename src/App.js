@@ -9,7 +9,7 @@ const socket = io('http://localhost:8000');
 
  socket.on('contents', (data)=>{
       console.log(data);
-      window.private.store.dispatch(updateContens({duration:7900,content:data.data}))
+      window.private.store.dispatch(updateContens(data))
   })
   
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
       console.log("disconnect")
     } );
     let items= contents.map((item)=>{
-      return <Content duration={item.duration} content= {item.content} />
+      return <Content {...item}/>
     })
     return (
       <div className="App">
