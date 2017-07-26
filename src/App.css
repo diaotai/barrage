@@ -19,14 +19,7 @@
 
 .barr {
   width: auto;
-  position: relative;
-  /*animation:rtl 8s linear 2s infinite;; 
-  */
+  position: fixed; 
+  white-space:nowrap;
 }
 
-
-@keyframes rtl {
-from   {background:red; left:60%; top:0px;}
-
-to {background:red; left:-60%; top:0px;}
-}

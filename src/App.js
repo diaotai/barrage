@@ -15,8 +15,15 @@ const socket = io('http://localhost:8000');
 class App extends Component {
   handleClick = ()=> {
     let value = this.refs.value.value
-    console.log(value)
+    if(!value){
+      alert("弹幕不得为空")
+      return;
+    } else if (value.length>15){
+      alert("弹幕过长")
+      return
+    }
     socket.emit("myContent",value)
+    this.refs.value.value=''
   }
   render() {
     let { contents } = this.props 

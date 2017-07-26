@@ -9,7 +9,6 @@ export function contentsReducer(state=initialState,action){
         return Object.assign({},state,{
             contents:[...state.contents,action.data]
         })
-        break;
         default:
         return state;
     }
