@@ -31,9 +31,10 @@ io.on('connection', function(socket){
     console.log(data);
     io.emit('contents',{
       content:data,
-      duration:Math.random()*8000+3000,
-      fontSize:Math.floor(25+Math.random()*40)+"px",
-      color:colors[Math.floor(Math.random()*colors.length)]
+      duration:Math.random()*8000+5000,
+      fontSize:Math.floor(25+Math.random()*80)+"px",
+      color:colors[Math.floor(Math.random()*colors.length)],
+      top:80*Math.random()+"%"
     })
   })
 });
